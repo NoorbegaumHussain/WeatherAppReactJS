@@ -3,14 +3,33 @@ import SearchInput from "../components/SearchInput";
 import "../styles/MainPage.css";
 import { Link, NavLink, Outlet } from "react-router-dom";
 import moment from "moment";
+import { useSelector } from "react-redux";
+import { SearchApi } from "../services/SearchApi";
 
 export default function MainPage() {
   const [currentDate, setcurrentDate] = useState();
   const [dialog, setDialog] = useState(false);
+  const [toggleSearch, settoggleSearch] = useState(false);
+  const [text, setText] = useState();
+  const [searchData, setSearchData] = useState();
+  console.log("++++++", searchData);
+  // const testVal = useSelector((state) => state.weatherdata.test);
+  // console.log(testVal);
   const updateDate = () => {
     const date = moment(new Date().toString()).format(`ddd, D MMM YYYY h:mm A`);
     setcurrentDate(date);
   };
+
+  const handleChange = async (event) => {
+    // setText(value);
+    const Data = await SearchApi(event.target.value);
+    setSearchData(Data);
+  };
+
+  // function handleChange(event) {
+  //   console.log(event.target.value);
+  // }
+
   useEffect(() => {
     updateDate();
   });
@@ -23,7 +42,22 @@ export default function MainPage() {
           className="logoweb"
           alt="logo"
         />
-        <SearchInput />
+        <SearchInput
+          settoggleSearch={settoggleSearch}
+          toggleSearch={toggleSearch}
+          name="search"
+          onChange={handleChange}
+          // onBlur={onBlur}
+          // onFocus={()=>console.log("input focused")}
+        />
+        {searchData?.length > 0 && (
+          <div className="search-result-container">
+            {searchData?.map((data) => (
+              <p onClick={}>{data.name}</p>
+              // console.log(data.name)
+            ))}
+          </div>
+        )}
       </div>
       <div className="mobile-header-container">
         <div className="right-header">
@@ -41,7 +75,7 @@ export default function MainPage() {
             alt="logo"
           />
         </div>
-        <img
+        {/* <img
           src={require("../assets/images/icon_search_white.png")}
           alt="search"
           className="search-icon-mobile"
@@ -49,8 +83,10 @@ export default function MainPage() {
           //   if (name === "folder") {
           //     handleDrop();
           //   } else handleVisible();
+          //   settoggleSearch(true)
           // }}
-        />
+        /> */}
+        <SearchInput />
       </div>
       <div className="nav-container">
         <nav className="navbar">

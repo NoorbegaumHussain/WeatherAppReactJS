@@ -8,7 +8,7 @@
   padding: 1vw;
   margin-top: 1px;
 }
-.compdiv:hover{
+.compdiv:hover {
   background-color: rgba(255, 255, 255, 0.3);
 }
 .compdivin {
@@ -16,44 +16,52 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  width: 25%;
-  /* border: 1px solid; */
+  width: fit-content;
+}
+.compdivmobdiv {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 65%;
 }
 
 .comp_icon {
   height: 38px;
   width: 36px;
+  margin-right: 28px;
 }
 .fav_icon {
   height: 17px;
   width: 18px;
 }
-
+.degree-text {
+  color: #ffffff;
+  font-size: 25px;
+  letter-spacing: 0;
+  margin-right: 32px;
+}
 .comptext1 {
   color: #ffe539;
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0;
-  line-height: 19px;
 }
 .comptext2 {
   color: #ffffff;
   font-size: 32px;
   font-weight: 500;
   letter-spacing: 0;
-  line-height: 38px;
 }
 .comptextdegree {
-  color: #FFFFFF;
+  color: #ffffff;
   font-size: 16px;
   letter-spacing: 0;
-  line-height: 19px;
 }
 .comptext3 {
   color: #ffffff;
   font-size: 18px;
   letter-spacing: 0;
-  line-height: 21px;
 }
 .main {
   height: 100%;
@@ -94,4 +102,72 @@
   height: 77vh;
   flex-direction: column;
   overflow: scroll;
+}
+.switchTempature {
+  border: 1px solid white;
+  border-radius: 4px;
+}
+
+@media screen and (max-width: 786px) {
+  .header-container {
+    display: none;
+  }
+  .mobile-header-container {
+    /* display: none; */
+  }
+  .comprender {
+    padding: 0 14px 0 14px;
+  }
+  .favtopbar {
+    padding: 0 14px 0 14px;
+    color: #ffffff;
+    font-size: 13px;
+    letter-spacing: 0;
+  }
+  .compdivmobdiv {
+    display: flex;
+    flex-direction: column;
+    height: inherit;
+    align-items: flex-start;
+    justify-content: none;
+    width: 65%;
+  }
+  .compdivin {
+    margin-top: 0px;
+    padding: 0px;
+    line-height: 0px;
+  }
+  .comp_icon {
+    height: 23px;
+    width: 22px;
+    margin-right: 9px;
+  }
+  .comptext2 {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 500;
+    letter-spacing: 0;
+    /* width: 100px; */
+  }
+  .degree-text {
+    color: #ffffff;
+    font-size: 13px;
+    letter-spacing: 0;
+    margin-right: 17px;
+  }
+  .comptext3 {
+    color: #ffffff;
+    font-size: 14px;
+    letter-spacing: 0;
+    min-width: 84px;
+  }
+  .comptext1 {
+    color: #ffe539;
+    font-size: 15px;
+    font-weight: 500;
+    letter-spacing: 0;
+  }
+  .fav_icon {
+    margin-right: 20px;
+  }
 }

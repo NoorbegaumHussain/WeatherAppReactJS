@@ -103,7 +103,13 @@ nav {
 .mobile-header-container {
   display: none;
 }
-
+.search-result-container {
+  position: absolute;
+  right: 7.3%;
+  top: 13%;
+  width: 32%;
+  background-color: rgba(255, 255, 255, 0.3);
+}
 @media screen and (max-width: 786px) {
   .rectangle {
     min-height: 100vh;
@@ -147,6 +153,7 @@ nav {
   .burger-menu {
     height: 16px;
     width: 20px;
+    margin-right: 20px;
   }
   .search-icon-mobile {
     height: 24px;
@@ -159,6 +166,4 @@ nav {
     justify-content: space-between;
     align-items: center;
   }
-
-
 }
